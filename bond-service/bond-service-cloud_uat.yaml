@@ -1,0 +1,84 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: prometheus,health,info,metric
+spring:
+  datasource:
+    hikari:
+      maxLifetime: '2000000'
+      connectionTimeout: '30000'
+      minimumIdle: '5'
+      poolName: HikariPoolBondService
+      idleTimeout: '30000'
+      maximumPoolSize: '20'
+    driver-class-name: oracle.jdbc.OracleDriver
+    password: BONDUAT1
+    username: BONDUAT1
+    url: jdbc:oracle:thin:@10.47.9.201:1521:BONDUAT
+  jpa:
+    properties:
+      hibernate:
+        format_sql: 'true'
+    show-sql: 'true'
+  jackson:
+    serialization:
+      fail-on-self-references: 'false'
+      fail-on-empty-beans: false
+  application:
+    name: bond-service
+bond-order:
+  portfolio:
+    status: DA_TAO_HD,DA_DUYET
+  pro-a:
+    term-advance-date: '3'
+  coupon:
+    close_date: '34'
+mail:
+  api:
+    key:
+      name: X-KSS-Api-Key
+      value: a5d3329a-e49a-45fe-b2bf-e84de19ed3c8
+logging:
+  level:
+    org:
+      springframework:
+        web:
+          servlet:
+            mvc:
+              method:
+                annotation:
+                  RequestResponseBodyMethodProcessor: debug
+      apache:
+        coyote:
+          http11:
+            Http11InputBuffer: debug
+hazelcast:
+  cache[1]:
+    expiry: '10800'
+    name: Holiday_List
+  cache[0]:
+    expiry: '20'
+    name: Issuer_Name
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+server:
+  port: '8083'
+bond-odrder:
+  mail-api: https://apiuat.kss.com.vn/uat/email
+font:
+  path: /opt/kss/bond-service/fonts
+email:
+  receivers: oanh.kl@kss.com.vn
+
+document:
+  generator:
+    path: http://10.47.9.205:8084/renderPDF
+
+contract:
+  type:
+    all: BMHDDM_PROA,BMHDDM,BMHDDT,BMXNGD_PRO,BMXNDT_PNOTE,BMHDDB_DINHKY,BMHDDB,BMXNDT_PNOTE_KSG,
+    xngdtp: BMHDDM_PROA,BMHDDM,BMHDDT,BMXNGD_PRO,BMXNDT_PNOTE,BMXNDT_PNOTE_KSG,
+    sell: BMHDDB_DINHKY,BMHDDB
+    base-path-minio: bonds
