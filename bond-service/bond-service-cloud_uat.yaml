@@ -83,4 +83,4 @@ contract:
     sell: BMHDDB_DINHKY,BMHDDB
     base-path-minio: bonds
 server:
-  port: 8083
+  port: '8083'
