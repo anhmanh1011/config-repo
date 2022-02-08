@@ -82,5 +82,3 @@ contract:
     xngdtp: BMHDDM_PROA,BMHDDM,BMHDDT,BMXNGD_PRO,BMXNDT_PNOTE,BMXNDT_PNOTE_KSG,
     sell: BMHDDB_DINHKY,BMHDDB
     base-path-minio: bonds
-server:
-  port: '8083'
